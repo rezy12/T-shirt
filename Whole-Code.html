@@ -1,0 +1,839 @@
+<!--
+    Name: Rezwan Ahmed
+    Date: 1/17/21
+    Descip: Website to order for custom layout of shirts and order from
+    the youtube incremnet from sales
+
+-->
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Shirt Layout</title>
+</head>
+
+<!--CSS style added later to put in diffrent file-->
+<style>
+
+    * {
+        box-sizing: border-box;
+    }
+
+    body, html {
+        height: 80%;
+        margin: 0%;
+        font-family: sans-serif;
+    }
+
+    /*tab links */
+    .tablink{
+        text-align: center;
+        position: relative;
+        float: left;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        padding: 14px 16px;
+        font-size: 17px;
+        width: 25%;
+        border-radius: 12px 25px;
+    }
+    .border_home{
+      
+      float: center;
+      border: 15px solid white;
+      padding: 14px 16px;
+      font-size: 17px;
+    	border-radius: 25px;
+      background-color: white;
+    	padding: 20px;
+      /*width max content look up */
+    	/*width: fixed;:200px;*/
+      height: 25%;
+      width: 45%;
+    	display: block;
+    	justify-content: center;
+    }
+
+    .button_home{
+      background-color: tomato;
+      -ms-perspective-origin-x: 4vh;
+      padding: 10px;
+      color: white;
+      cursor: pointer;
+      align-items: center;
+      
+    }
+
+    .button_home:hover{
+      background-color: rgb(129, 93, 93) ;
+    }
+
+    
+
+    .tablink:hover {
+        background-color:rgb(121, 118, 121);
+    }
+
+    /* Style the tab content (and add height:100% for full page content) */
+    .tabcontent {
+    display: none;
+    padding: 100px 20px;
+    height: 500%;
+    }
+
+    #Home {
+        background-color: rgb(252, 168, 168);
+    }
+    #Shop {
+        background-color: rgb(165, 243, 165);
+    }
+    #Gifts {
+        background-color: rgb(177, 177, 228);
+    }
+    #About {
+        background-color: rgb(226, 205, 166);
+    }
+
+
+    
+
+    .row::after{
+      content: "";
+      display: table;
+      clear: both;
+    }
+
+    .Sub_total{
+
+      background-color: white;
+      height: 12%;
+      padding: auto;
+      margin: auto;
+      align-items: right;
+
+    }
+
+
+    /* stay in three layers for the home tab */
+    .f1-1{
+      float: left;
+      word-break: break-all;
+      width: 33%;
+    }
+
+    #wrap{
+      width: auto;
+      margin: 0 auto;
+      border: 10px  yellow solid;
+      height: 200px;
+      display: block;
+    }
+
+    /*about question and answer page */
+    #question{
+      display: block;
+      text-align: left;
+      background-color: rgb(231, 230, 179);
+      border-radius: 12px;
+      padding: 1%;
+      margin-top: 1%;
+      margin-bottom: 3%;
+      font-size: medium;
+      font-style: italic;
+    }
+
+    #answer{
+      display: block;
+      text-align: right;
+      background-color: rgb(157, 160, 121);
+      border-radius: 12px;
+      padding: 1%;
+      margin-top: 1%;
+      margin-bottom: 3%;
+      color: aliceblue;
+      font-size: medium;
+      font-style: italic;
+      
+    }
+
+    #button_gender{
+      border-radius: 25%;
+      height: 20%;
+      width: 29%;
+      background-color: white;
+      border: 15px solid white;
+      padding: 14px 16px;
+      font-size: 17px;
+      border-radius: 25px;
+      margin: 3%;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    #button_gender:hover{
+      background-color: rgb(226, 119, 137);
+    }
+
+    #button_gender:hover{
+      background-color: rgb(231, 56, 56);
+    }
+
+    /*occasion button layout for occasions in gifts */
+    #occassion_layout{  
+      height: 225px;
+      width: 200px;
+      background-color: white;
+      padding: 25px;
+      margin: 15px;
+      margin-top: 5%;
+      margin-bottom: 5%;
+      border-radius: 100px/25px;
+      cursor: pointer;
+      /*changes the speed when hovered in place */
+      transition: .2s;
+      
+    }
+      /*changes the size when hover to zoom in */
+    #occassion_layout:hover{
+      transform: scale(1.1);
+    }
+    
+    #Wedding_POPUP{
+      float: center;
+      border: 15px solid white;
+      padding: 14px 16px;
+      font-size: 17px;
+      border-radius: 25px;
+      background-color: white;
+      padding: 20px;
+      height: 25%;
+      width: 45%;
+      display: block;
+      justify-content: center;
+    }
+
+
+
+    #Fill_wedding{
+      padding: 25px;
+      margin: 2px;
+      margin-top: 12px;
+      margin-bottom: 20px;
+      border-color: 2px black;
+      width: 350px;
+      border: 3px solid black;
+      border-radius: 12px 25px;
+    }
+
+    #Notes{
+      padding: 25px;
+      margin-bottom: 17px;
+      border-radius: 15px 20px;
+      resize: none;
+    }
+
+    input {
+      padding: 2px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    
+/* Popup screen for each modal when pressed 
+   buttons when pressed background changes
+   setup for when clicked*/
+    .modal {
+      position: fixed;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transform: scale(1.1);
+      transition: visibility 0s linear 0.25s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+    /*center of page  with padding and borders*/
+    .modal-content {
+      position: absolute;
+      top: 359px;
+      left: 624px;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 1rem 1.5rem;
+      width: 34%;
+      border-radius: 0.5rem;
+      height: 122%;
+    }
+
+    /*close button layout with hover background*/
+    .close-button {
+      float: right;
+      width: 1.5rem;
+      line-height: 1.5rem;
+      text-align: center;
+      cursor: pointer;
+      border-radius: 0.25rem;
+      background-color: lightgray;
+    }
+
+    .close-button:hover {
+      background-color: darkgray;
+    }
+
+    /*style of modal when its open */
+    .show-modal {
+      opacity: 1;
+      visibility: visible;
+      transform: scale(1.0);
+      transition: visibility 0s linear 0s, opacity 0.25s 0s, transform 0.25s;
+    }
+
+    .Fill_form{
+      float: center;
+      border: 15px solid white;
+      padding: 14px 16px;
+      font-size: 17px;
+      border-radius: 25px;
+      background-color: white;
+      padding: 20px;
+      height: 25%;
+      width: 45%;
+      display: block;
+      justify-content: center;
+    }
+
+</style>
+
+
+<!--Html added layout-->
+<!--****Layer same as cake order when button clicked clicks to next page****-->
+<body>
+
+
+  <!-- id default to reload and show the page customized-->
+<button class="tablink" onclick="openPage('Home', this, 'rgb(250, 121, 121)')">Home</button>
+<button class="tablink" onclick="openPage('Shop', this, 'rgb(119, 231, 119)')">Shop</button>
+<button class="tablink" onclick="openPage('Gifts', this, 'rgb(112, 112, 223)')" id="defaultOpen">Gifts</button>
+<button class="tablink" onclick="openPage('About', this, 'rgb(218, 178, 104)')">About</button>
+
+
+<div id="Home" class="tabcontent">
+    <h1>Home</h1>
+
+    <!-- margin auto center of the page in the website-->
+    <div class ="border_home" style="margin: auto;">
+      <h1>Tshirts - for sale </h1>
+        <p>the layyout of the design is for to personalized how to want to look blah blah blah</p>
+
+        <!-- when button is clicked show box to cutomize the shirt/sweter/jacket-->
+        <h1 style="font-size: 25px;">Gifts</h1>
+          <button class="button_home">T-shirts</button>
+          <button class="button_home">Sweaters</button>
+          <button class="button_home">Jackets</button>
+    </div>
+
+
+
+  <div>
+        <h1>T-shirts</h1>
+
+
+        <div class="gender"> 
+          <button id="button_gender"><h1>MEN</h1></button>
+
+          
+          <button id="button_gender" style="float: right;"><h1>WOMEN</h1></button>
+
+        </div>
+
+
+
+      <div class="f1-1">
+            
+        <h3>Color:</h3>
+
+          <div class="Color_shirt">
+            <input type="radio" id="ritema" name="Shirt_color" value="yellow">
+            <label for="Shirt_color">Yellow</label>
+          </div>
+        
+          <div class="Color_shirt">
+            <input type="radio" id="ritema" name="Shirt_color" value="red">
+            <label for="Shirt_color">Red</label>
+          </div>
+        
+          <div class="Color_shirt">
+            <input type="radio" id="ritema" name="Shirt_color" value="white">
+            <label for="Shirt_color">White</label>
+          </div>
+          
+          <div class="Color_shirt">
+            <input type="radio" id="ritema" name="Shirt_color" value="green">
+            <label for="Shirt_color">Green</label>
+          </div>
+        
+          <div class="Color_shirt">
+            <input type="radio" id="ritema" name="Shirt_color" value="blue">
+            <label for="Shirt_color">Blue</label>
+          </div>
+        
+          <div class="Color_shirt">
+            <input type="radio" id="ritema" name="Shirt_color" value="orange">
+            <label for="Shirt_color">Orange</label>
+          </div>
+        
+          <div class="Color_shirt">
+            <input type="radio" id="ritema" name="Shirt_color" value="purple">
+            <label for="Shirt_color">Purple</label>
+          </div>
+        
+      </div>
+
+
+        <div class= "f1-1">
+
+          <h3>Size:</h3>
+
+          <div class="Size_shirt">
+            <input type="radio" id="ritema" name="Shirt_size" value="XS_small">
+            <label for="XS_small">XS</label>
+          </div>
+
+          <div class="Size_shirt">
+            <input type="radio" id="ritema" name="Shirt_size" value="Small">
+            <label for="Small">Small</label>
+          </div>
+
+          <div class="Size_shirt">
+            <input type="radio" id="ritema" name="Shirt_size" value="Medium">
+            <label for="Medium">Medium</label>
+          </div>
+
+          <div class="Size_shirt">
+            <input type="radio" id="ritema" name="Shirt_size" value="Large">
+            <label for="Large">Large</label>
+          </div>
+
+          <div class="Size_shirt">
+            <input type="radio" id="ritema" name="Shirt_size" value="X_Large">
+            <label for="X_Large"> XL</label>
+          </div>
+
+        </div>
+
+            <div class ="f1-1">
+              <h3>Total:</h3>
+
+            
+              
+            </div>
+
+
+
+
+  </div>
+
+
+
+</div>
+
+
+
+<div id="Shop" class="tabcontent">
+  <h1>Shop</h1>
+    <div class="border_home">
+      <p>We accept anyway form of payment and may take up to few days to process the amount</p> 
+    </div>
+</div>
+
+<div id="Gifts" class="tabcontent">
+  <h1>Gifts and Occasion</h1>
+    <div class="border_home">
+      <p>Come and cutomize the way you want to represent the way the shirt will be made to cutomize the layour on items and devices</p>
+    </div>
+
+          <!--add button of wedding and other stuff with big borader llke above and block to align left to right like line-->
+      <div id="occasion">
+        <button id="occassion_layout" class="Wedding_POPUP" data-rel="Wedding_modal">Wedding</button>
+        <button id="occassion_layout" class="Birthday_POPUP" data-rel="Birthday_modal">Birthday</button>
+        <button id="occassion_layout" class="Holiday_POPUP" data-rel="Holiday_modal">Holiday</button>
+        <button id="occassion_layout" class="Baby_POPUP" data-rel="Baby_modal">Baby Shower</button>
+        <button id="occassion_layout" class="Other_POPUP" data-rel="Other_modal">Other</button>
+      </div>
+
+      <div id="Wed_fill">
+        <span class="close">&times;</span>
+
+        <!--when the wedding button is pusehed what it will show show div boderline-->
+          <div id ="Wedding_modal" class="modal">
+              <div class="modal-content">
+                <span class="close-button">&times;</span>
+                  
+                  <!--name fill  order here anything needed-->
+                <h1>Wedding Registration Form</h1>
+                <p>Haveing the proivagle of having you in the presence of thus celebrtaion</p>
+
+                  <h1>Wedding Info</h1>
+
+                <form id="Fill_wedding">
+                  <label for="B_Name"> Brides Name:</label>
+                    <input type="text" id="B_Name" name="Brides_Name">
+
+
+                  <br> <!--check why necessary to break line-->
+
+
+                  <label for="G_Name"> Gromes Name:</label>
+                    <input type="text" id="G_Name" name="Gromes_Name">
+
+                    
+                  <br> <!--check why necessary to break line-->
+
+
+                    <!-- check regiratstion of wedding https://www.jotform.com/form-templates/wedding-registration-form-->
+
+                    <label for="Date">Save The Date</label>
+                    ``<input type="text" class="" id="" size="12" data-maxlength="12"
+                        maxlength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" 
+                        placeholder="MM-DD-YYYY" autocomplete="section-input_3 off" aria-labelledby="label_3 sublabel_3_litemode">
+
+                        <h6 style="margin-bottom: 2px; color: red;">If there id anything that the we need to know please add any notes necessary!</h6>
+
+                    <!--Text area for notes in case anything needs to be mentioned-->
+                    <textarea placeholder="Notes...." id="Notes" name="Notes" rows="5" cols="33"></textarea>
+
+                  <input type="submit" value="Submit">
+                </form>
+
+              </div>
+
+
+
+
+          </div>
+
+      </div>
+
+
+      <!--birthday when clicked-->
+      <div id="Birthday_modal" class="modal">
+        <div class="modal-content">
+          <span class="close-button">&times;</span>
+
+          <!--form for birthday-->
+          <div class="Birth_fill">
+            <div class="Fill_form">
+                  <h1>HAPPY BIRTHDAY</h1>
+                  <h6>Hope you, your family, and friends enjoy this special day!</h6>
+        
+                  <!--form for birthday invite-->
+                    <form id="Fill_birthday">
+                        <label for="F_name"> First Name:</label>
+                          <input type="text" id="F_name" name="First_Name"><br>
+          
+                        <label for="L_name"> Last Name:</label>
+                          <input type="text" id="L_name" name="Last_Name"><br>
+          
+                        <!-- invatation to party-->
+                        <label for="Guest_amount"> How many in your party:</label>
+                            <select id="Guest_amount" name="guest">
+                              <option value="1-5">1-5</option>
+                              <option value="6-10">6-10</option>
+                              <option value="10-20">10-20</option>
+                              <option value="More">20 or more</option>
+                            </select><br>
+          
+                            
+                            <label for="Date">When is the party</label>
+                            ``<input type="text" class="" id="" size="12" data-maxlength="12"
+                                maxlength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" 
+                                placeholder="MM-DD-YYYY" autocomplete="section-input_3 off" aria-labelledby="label_3 sublabel_3_litemode">
+          
+                                <h6 style="margin-bottom: 2px; color: red;">If there id anything that the we need to know please add any notes necessary!</h6>
+          
+                            <!--Text area for notes in case anything needs to be mentioned-->
+                            <textarea placeholder="Notes...." id="Notes" name="Notes" rows="5" cols="33"></textarea>
+          
+                            <input type="submit" value="Submit">
+                    </form>
+    
+    
+            </div>
+    
+          </div>
+    
+        </div>
+
+      </div>
+
+
+      <div id="Holdy_fill">
+        <span class="close">&times;</span>
+
+        <!--when the wedding button is pusehed what it will show show div boderline-->
+        <!--  <div id ="Holiday_modal" class="modal">
+              <div class="modal-content">
+                <span class="close-button">&times;</span>
+                <div class="Fill_form">
+                  <!--name fill  order here anything needed-->
+                      <h1>Happy HOLIDAY</h1>
+                      <p>Celebrating your special Holiday and hope you have a safe year along with a special celebrtaion</p>
+
+                        <h1>Holiday</h1>
+                        
+
+                            <form id="Fill_HOLIDAY"> 
+                                  <p>What are we celebrating today:</p>
+                                <input type="radio" id="Christmas_holday" name="Holiday" value="Christmas_holday">
+                                  <label for="Christmas">Christmas</label><br>
+                                <input type="radio" id="Easter_holiday" name="Holiday" value="Easter">
+                                  <label for="css">Easter</label><br>
+                                <input type="radio" id="javascript" name="Holiday" value="President Day">
+                                  <label for="President Day">President Day</label><br>
+                                    
+                                <input type="radio" id="New_Years" name="Holiday" value="New Years_holday">
+                                  <label for="New Years_holday">New Years</label><br>
+                                    
+                                <input type="radio" id="Ramadan" name="Holiday" value="Easter">
+                                  <label for="Ramadan">Ramadan</label><br>
+                                    
+                                <input type="radio" id="VAl_times" name="Holiday" value="Valentines Day">
+                                  <label for="Valentines Day">Valentines Day</label>
+
+                                <input type="radio" id="Other" name="Holiday" value="Other Holiday">
+                                  <label for="Other Day">Other</label>
+
+                                  <br>  
+                                  
+                                  <input type="submit" value="Submit">
+                            </form>
+
+                          <h5>any day that needs to be added or notes please add in the bottom</h5>
+
+                          <label for="Date">Any Day Special</label>
+                            <input type="text" class="" id="" size="12" data-maxlength="12"
+                              maxlength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" 
+                              placeholder="MM-DD-YYYY" autocomplete="section-input_3 off" aria-labelledby="label_3 sublabel_3_litemode">
+
+                              <h6 style="margin-bottom: 2px; color: red;">If there id anything that the we need to know please add any notes necessary!</h6>
+
+                          <!--Text area for notes in case anything needs to be mentioned-->
+                          <textarea placeholder="Notes...." id="Notes" name="Notes" rows="5" cols="33"></textarea>
+
+                        <input type="submit" value="Submit">
+                      </form>
+
+                </div>
+
+              </div>
+
+          </div>
+
+
+
+
+
+          <!--baby shower button clicked-->
+          <div class="baby_showers_form">
+            <div id="Baby_modal" class="modal">
+              <div class="modal-content">
+                <span class="close-button">&times;</span>
+      
+                <!--form for birthday-->
+                <div class="Birth_fill">
+                  <div class="Fill_form">
+                        <h1>BABY SHOWER</h1>
+                        <h6>Congragulations to your new wonderful child!</h6>
+              
+                        <!--form for birthday invite-->
+                          <form id="Fill_Baby">
+                              <label for="babyFirst_name"> First Name:</label>
+                                <input type="text" id="babyFirst_name" name="Baby_First_Name"><br>
+                
+                              <label for="babyLast_name"> Last Name:</label>
+                                <input type="text" id="babyLast_name" name="Baby_Last_Name"><br>
+                
+                              <!-- invatation to party-->
+                              <label for="CHild_amount"> Is This your First Child:</label>
+                                  <select id="CHild_amount" name="CHildren">
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                  </select><br>
+
+                                <label for="Gender"> Male or Female</label>
+                                  <select id="Gender" name="Gender_child">
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                  </select><br>
+                
+                                  
+                                  <label for="Date">When was the child born</label>
+                                  ``<input type="text" class="" id="" size="12" data-maxlength="12"
+                                      maxlength="12" data-age="" value="" data-format="mmddyyyy" data-seperator="-" 
+                                      placeholder="MM-DD-YYYY" autocomplete="section-input_3 off" aria-labelledby="label_3 sublabel_3_litemode">
+                
+                                      <h6 style="margin-bottom: 2px; color: red;">Is your child allergic to anything!</h6>
+                
+                                  <!--Text area for notes in case anything needs to be mentioned-->
+                                  <textarea placeholder="Notes...." id="Notes" name="Notes" rows="5" cols="33"></textarea>
+                
+                                  <input type="submit" value="Submit">
+                          </form>
+          
+          
+                  </div>
+          
+                </div>
+          
+              </div>
+      
+            </div>
+
+          </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+
+<div id="About" class="tabcontent">
+  <h1>About</h1>
+  <p>A few questions and answers about the site listed above:</p>
+
+    <div class="border_home">
+      <p>Few Q/A and reviews to show how the thirts are represented and add sort the number of stars if they want to use it</p>
+    </div>
+
+    <!--few examples for the question and answer page-->
+  <p style="text-align: left">QUESTION:</p>
+    <p id="question">Is it possible to print designs and logos on devices beside shirts or jackets</p>
+  <p style="text-align: right">ANSWER:</p>
+    <p id="answer">Yes we desing your choice of desing on any platform that own professionals can print</p>
+  <p style="text-align: left">QUESTION:</p>
+    <p id="question">Can we come in person to the shop/office so see in person how the design is created</p>
+  <p style="text-align: right">ANSWER:</p>
+    <p id="answer">UNformatanalty we are not office is not built yet we are just  communication is online but, we do replay ASAP 
+                  weather it is message, eamil, or phone.</p>
+  <p style="text-align: left">QUESTION:</p>
+    <p id="question">When do we receive our items</p>
+  <p style="text-align: right">ANSWER:</p>
+    <p id="answer">Between 3-5 business days</p>
+    <p style="text-align: left">QUESTION:</p>
+    <p id="question">What if we are unsatified about our product</p>
+  <p style="text-align: right">ANSWER:</p>
+    <p id="answer">We have 100% return possible and want to hear if any mistakes were made on our end and hope to fix any
+                  issues that were made</p>
+
+
+
+</div>
+
+</body>
+
+
+    <script>
+
+        /* javascript added to change color on page */
+        function openPage(pageName,elmnt,color) {
+          var i, tabcontent, tablinks;
+          tabcontent = document.getElementsByClassName("tabcontent");
+          for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].style.display = "none";
+          }
+          tablinks = document.getElementsByClassName("tablink");
+          for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].style.backgroundColor = "";
+          }
+          document.getElementById(pageName).style.display = "block";
+          elmnt.style.backgroundColor = color;
+        }
+        
+        // Get the element with id="defaultOpen" and click on it
+        document.getElementById("defaultOpen").click();
+
+
+
+
+
+
+            const modal = document.querySelector(".modal");
+            const Wedding_POPUP = document.querySelector(".Wedding_POPUP");
+            const Birthday_POPUP = document.querySelector(".Birthday_POPUP");
+            const Holiday_POPUP = document.querySelector(".Holiday_POPUP");
+            const Baby_POPUP = document.querySelector(".Baby_POPUP");
+            const Other_POPUP = document.querySelector(".Other_POPUP");
+
+            function closeModal() {
+              document.querySelectorAll(".modal").forEach(el => el.classList.remove("show-modal"));
+            }
+
+            function toggleModal(e) {
+              let modal = document.getElementById(e.target.dataset.rel);
+              if (modal) {
+                document.querySelectorAll(".modal").forEach(el => {
+                  if (el == modal) {
+
+                    el.classList.toggle("show-modal");
+                  } else {
+                    el.classList.remove("show-modal");
+                  }
+                });
+              }
+            }
+
+            function windowOnClick(event) {
+              if (event.target === modal) {
+                toggleModal(event);
+              }
+            }
+
+
+            Wedding_POPUP.addEventListener("click", toggleModal);
+            Birthday_POPUP.addEventListener("click", toggleModal);
+            Holiday_POPUP.addEventListener("click", toggleModal);
+            Baby_POPUP.addEventListener("click", toggleModal);
+            Other_POPUP.addEventListener("click", toggleModal);
+            closeButton.addEventListener("click", closeModal);
+            window.addEventListener("click", windowOnClick);
+
+    </script>
+
+</html>
