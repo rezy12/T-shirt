@@ -6,9 +6,6 @@
 
 -->
 
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -100,9 +97,6 @@
     #About {
         background-color: rgb(226, 205, 166);
     }
-
-
-    
 
     .row::after{
       content: "";
@@ -314,8 +308,6 @@
 
 </style>
 
-
-<!--Html added layout-->
 <!--****Layer same as cake order when button clicked clicks to next page****-->
 <body>
 
@@ -434,20 +426,11 @@
             <div class ="f1-1">
               <h3>Total:</h3>
 
-            
-              
             </div>
-
-
-
 
   </div>
 
-
-
 </div>
-
-
 
 <div id="Shop" class="tabcontent">
   <h1>Shop</h1>
@@ -456,7 +439,7 @@
     </div>
 </div>
 
-<div id="Gifts" class="tabcontent">
+<div id="Gifts" class="tabcontent" >
   <h1>Gifts and Occasion</h1>
     <div class="border_home">
       <p>Come and cutomize the way you want to represent the way the shirt will be made to cutomize the layour on items and devices</p>
@@ -547,6 +530,7 @@
                         <!-- invatation to party-->
                         <label for="Guest_amount"> How many in your party:</label>
                             <select id="Guest_amount" name="guest">
+                              <option disabled selected value> -- select an option -- </option>
                               <option value="1-5">1-5</option>
                               <option value="6-10">6-10</option>
                               <option value="10-20">10-20</option>
@@ -581,7 +565,7 @@
         <span class="close">&times;</span>
 
         <!--when the wedding button is pusehed what it will show show div boderline-->
-        <!--  <div id ="Holiday_modal" class="modal">
+        y  <div id ="Holiday_modal" class="modal">
               <div class="modal-content">
                 <span class="close-button">&times;</span>
                 <div class="Fill_form">
@@ -640,9 +624,6 @@
           </div>
 
 
-
-
-
           <!--baby shower button clicked-->
           <div class="baby_showers_form">
             <div id="Baby_modal" class="modal">
@@ -666,12 +647,14 @@
                               <!-- invatation to party-->
                               <label for="CHild_amount"> Is This your First Child:</label>
                                   <select id="CHild_amount" name="CHildren">
+                                    <option disabled selected value> -- select an option -- </option>
                                     <option value="Yes">Yes</option>
                                     <option value="No">No</option>
                                   </select><br>
 
                                 <label for="Gender"> Male or Female</label>
                                   <select id="Gender" name="Gender_child">
+                                    <option disabled selected value> -- select an option -- </option>
                                     <option value="Male">Male</option>
                                     <option value="Female">Female</option>
                                   </select><br>
@@ -702,38 +685,60 @@
           </div>
 
 
+          <!--Other button clicked-->
+          <div class="Celbration_form">
+            <div id="Other_modal" class="modal">
+              <div class="modal-content">
+                <span class="close-button">&times;</span>
+      
+                <!--form for other fill-->
+                <div class="Other_fill">
+                  <div class="Fill_form">
+                        <h1>Other Celebration</h1>
+                        
+                          <form id="Fill_Other">
+                              
+                              <!-- invatation to party-->
+                              <label for="Diffrent_Celbrt"> Is there something something that we have missed</label>
+                                  <select id="Diffrent_Celbrt" name="Other_reson">
+                                    <option disabled selected value> -- select an option -- </option>
+                                    <option value="Yes">Yes</option>
+                                    <option value="No">No</option>
+                                  </select><br>
 
+                                <label for="What_missed"> What may have we missed</label>
+                                  <select id="What_missed" name="Missing">
+                                    <option disabled selected value> -- select an option -- </option>
+                                    <option value="Holidays">Holiday</option>
+                                    <option value="Celebrations">Celebration</option>
+                                    <option value="logoes">Logo</option>
+                                    <option value="merch">Merchandise</option>
+                                    <option value="Others">Other</option>
+                                  </select><br>
+                
+                
+                                  <!--Text area for notes in case anything needs to be mentioned-->
+                                  <textarea placeholder="Notes...." id="Notes" name="Notes" rows="5" cols="33"></textarea>
+                
+                                  <input type="submit" value="Submit">
+                          </form>
+          
+          
+                  </div>
+          
+                </div>
+          
+              </div>
+      
+            </div>
 
+          </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  </div>
 
 </div>
 
-
-
-
-
-
-
-</div>
-
-
-
+<!--about page questions and answer-->
 <div id="About" class="tabcontent">
   <h1>About</h1>
   <p>A few questions and answers about the site listed above:</p>
